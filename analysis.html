@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thompson Watch | Analysis</title>
+    <meta name="description" content="View the monthly enrollment analysis for Thompson Watch courses.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span class="logo-text">THOMPSON</span>
+                <span class="logo-subtext">WATCH</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#courses">Courses</a>
+                <a href="analysis.html" class="active">Analysis</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: auto; padding: 6rem 0 3rem 0;">
+            <div class="container hero-content">
+                <h1>Platform Analysis</h1>
+                <p>Track the growth of Thompson Watch premium courses.</p>
+            </div>
+        </section>
+
+        <section id="analytics" class="analytics-section" style="background-color: var(--card-bg); padding: 3rem 0; text-align: center; min-height: 400px;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Monthly Analysis</h2>
+                    <p id="month-range-label">Enrollment count from 1st to 31st of the current month.</p>
+                </div>
+                <div class="stats-container" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                    <div class="stat-card" style="background: var(--bg-color); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); min-width: 200px;">
+                        <h3 style="font-size: 4rem; margin: 0; color: var(--primary-color);" id="month-enrollments-count">0</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1.1rem;">New Enrollments This Month</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">THOMPSON</span>
+                <span class="logo-subtext">WATCH</span>
+            </div>
+            <p>&copy; 2026 Thompson Watch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
