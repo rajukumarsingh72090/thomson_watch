@@ -45,8 +45,45 @@ async function fetchCourses() {
 
             if (grid) {
                 const card = createCourseCard(course, enrollments.length);
+                card.setAttribute('data-title', (course.title || '').toLowerCase());
+                card.setAttribute('data-desc', (course.description || '').toLowerCase());
                 grid.appendChild(card);
             }
+        }
+
+        const searchInput = document.getElementById('course-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.course-card');
+                let hasVisible = false;
+                
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title');
+                    const desc = card.getAttribute('data-desc');
+                    if (title.includes(term) || desc.includes(term)) {
+                        card.style.display = ''; 
+                        hasVisible = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                let noResultMsg = document.getElementById('no-results-msg');
+                if (!hasVisible && term !== '') {
+                    if (!noResultMsg) {
+                        noResultMsg = document.createElement('div');
+                        noResultMsg.id = 'no-results-msg';
+                        noResultMsg.className = 'loader';
+                        noResultMsg.textContent = 'No courses found matching your search.';
+                        grid.appendChild(noResultMsg);
+                    } else {
+                        noResultMsg.style.display = 'block';
+                    }
+                } else if (noResultMsg) {
+                    noResultMsg.style.display = 'none';
+                }
+            });
         }
 
         const monthCountEl = document.getElementById('month-enrollments-count');
